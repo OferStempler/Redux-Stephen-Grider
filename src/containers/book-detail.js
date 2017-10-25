@@ -4,20 +4,28 @@
 import React from 'react';
 import { Component } from 'react';
 import {connect} from "react-redux";
-import { bindActionCreators } from 'redux';
 class BookDetails extends Component{
     render() {
+        if(!this.props.book){
+            return <div>Select a book to get Started</div>
+        }
+
         return (
-            <div>Book Details!</div>
+            <div>
+                <h3>Details for:</h3>
+                <div>Title: {this.props.book.title}</div>
+                <div>Pages: {this.props.book.pages}</div>
+
+            </div>
         );
     }
 }
 
 function mapStateToProps (state){
     return {
-        books: state.activeBook
+        book: state.activeBook
     };
 }
 
 
-export default connect (mapStateToProps, mapDispatchToProps)(BookDetails);
+export default connect (mapStateToProps)(BookDetails);

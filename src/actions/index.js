@@ -1,4 +1,7 @@
-export default function selectBook(book) {
+
+
+
+export function selectBook(book) {
     //selectBook needs to return an action,
     // an object with a type property.(look at the diagram)
     return {
